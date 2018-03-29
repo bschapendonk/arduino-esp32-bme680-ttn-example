@@ -1,4 +1,4 @@
-# Arduino-ESP32 and BME680 on The Things Network Example
+# Arduino-ESP32 and BME680 on The Things Network Example using TTGO LoRa32 V1 (ESP32+SX1276) board
 
 ## Usage
 
