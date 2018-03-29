@@ -2,7 +2,7 @@
 
 ## Usage
 
-Create a `ttn_secrets.h` containing your TTN secrets.
+ 1. Create a `ttn_secrets.h` containing your TTN secrets.
 
 ``` C
 #include <Arduino.h>
@@ -12,6 +12,18 @@ static const u1_t PROGMEM APPEUI[8] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 static const u1_t PROGMEM DEVEUI[8] = { 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 static const u1_t PROGMEM APPKEY[16] = { 0x2B, 0x7E, 0x15, 0x16, 0x28, 0xAE, 0xD2, 0xA6, 0xAB, 0xF7, 0x15, 0x88, 0x09, 0xCF, 0x4F, 0x3C };
 ```
+2. Edit `main.ino` and adjust for the correct pinout
+
+``` C
+const lmic_pinmap lmic_pins = {
+    .nss = 18,
+    .rxtx = LMIC_UNUSED_PIN,
+    .rst = 14,
+    .dio = {26, 33, 32},
+};
+```
+3. Edit `.piolibdeps/LMIC-Arduino_ID852/src/hal/hal.c` change `SPI.begin();` to `SPI.begin(5, 19, 27, 18);` or the correct pinout.
+
 `main.ino` is based on the following example https://github.com/matthijskooijman/arduino-lmic/blob/master/examples/ttn-otaa/ttn-otaa.ino
 
 ## Copy & Pasted together using
