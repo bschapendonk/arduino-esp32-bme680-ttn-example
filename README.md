@@ -22,7 +22,9 @@ const lmic_pinmap lmic_pins = {
     .dio = {26, 33, 32},
 };
 ```
-3. Set the correct pins in `.piolibdeps/LMIC-Arduino_ID852/src/hal/hal.c` change `SPI.begin();` to `SPI.begin(5, 19, 27, 18);`.
+``` C
+`SPI.begin(5, 19, 27, 18);`
+``` 
 
 `main.ino` is based on the following example https://github.com/matthijskooijman/arduino-lmic/blob/master/examples/ttn-otaa/ttn-otaa.ino
 

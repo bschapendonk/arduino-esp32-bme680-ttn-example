@@ -29,10 +29,10 @@
  *******************************************************************************/
 
 #include <Arduino.h>
+#include <SPI.h>
 #include <lmic.h>
 #include <hal/hal.h>
 #include <Wire.h>
-#include <SPI.h>
 #include <CayenneLPP.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BME680.h>
@@ -192,6 +192,7 @@ void setup()
     Serial.println(F("Starting"));
 
     // LMIC init
+    SPI.begin(5, 19, 27, 18);
     os_init();
     // Reset the MAC state. Session and pending data transfers will be discarded.
     LMIC_reset();
