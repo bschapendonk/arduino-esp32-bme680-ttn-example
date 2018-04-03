@@ -23,7 +23,7 @@ const lmic_pinmap lmic_pins = {
 };
 ```
 ``` C
-`SPI.begin(5, 19, 27, 18);`
+SPI.begin(5, 19, 27, 18);
 ``` 
 
 `main.ino` is based on the following example https://github.com/matthijskooijman/arduino-lmic/blob/master/examples/ttn-otaa/ttn-otaa.ino
